@@ -1,0 +1,4919 @@
+{
+  "method": "BM25 (jieba) + min-2-content-overlap refusal gate, top_k=3, sample corpus (7 docs, 76 chunks)",
+  "qa_file": "eval/qa_100.jsonl",
+  "corpus": {
+    "docs": 7,
+    "chunks": 76
+  },
+  "rewrite": true,
+  "history_items": 18,
+  "total": 100,
+  "correct": 100,
+  "accuracy": 1.0,
+  "per_category": {
+    "fact": {
+      "total": 20,
+      "correct": 20,
+      "accuracy": 1.0
+    },
+    "cross_doc": {
+      "total": 20,
+      "correct": 20,
+      "accuracy": 1.0
+    },
+    "multi_turn": {
+      "total": 20,
+      "correct": 20,
+      "accuracy": 1.0
+    },
+    "no_answer": {
+      "total": 20,
+      "correct": 20,
+      "accuracy": 1.0
+    },
+    "format_citation": {
+      "total": 20,
+      "correct": 20,
+      "accuracy": 1.0
+    }
+  },
+  "details": [
+    {
+      "id": "fact-01",
+      "category": "fact",
+      "question": "什么是 RAG？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "01-rag-intro.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "fact-02",
+      "category": "fact",
+      "question": "RAG 文档切分一般多大？重叠多少字符？",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "fact-03",
+      "category": "fact",
+      "question": "混合检索为什么比单一检索好？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "fact-04",
+      "category": "fact",
+      "question": "重排 reranker 在 RAG 里起什么作用？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "02-rag-evaluation.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "cross-01",
+      "category": "cross_doc",
+      "question": "切分策略如何影响评测中的上下文召回率？",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "02-rag-evaluation.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "cross-02",
+      "category": "cross_doc",
+      "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "05-chunking-advanced.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "cross-03",
+      "category": "cross_doc",
+      "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "cross-04",
+      "category": "cross_doc",
+      "question": "做消融实验时，一次只改一个变量，为什么？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "05-chunking-advanced.md",
+        "02-rag-evaluation.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "multi-01",
+      "category": "multi_turn",
+      "question": "那它和单纯向量检索比有什么优势？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true,
+      "history": [
+        "混合检索为什么比单一检索好？"
+      ],
+      "rewritten_question": "那它和单纯向量检索比有什么优势？ 混合 单一"
+    },
+    {
+      "id": "multi-02",
+      "category": "multi_turn",
+      "question": "刚才说的重叠，具体是多少字符？",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true,
+      "history": [
+        "RAG 文档切分一般多大？重叠多少字符？"
+      ],
+      "rewritten_question": "刚才说的重叠，具体是多少字符？ rag 文档 切分 一般 多大"
+    },
+    {
+      "id": "multi-03",
+      "category": "multi_turn",
+      "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "multi-04",
+      "category": "multi_turn",
+      "question": "如果检索没召回，下一步应该先改什么？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "refuse-01",
+      "category": "no_answer",
+      "question": "2026 年最新发布的大模型有哪些？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-02",
+      "category": "no_answer",
+      "question": "今天北京的天气怎么样？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-03",
+      "category": "no_answer",
+      "question": "如何用 LoRA 微调一个开源小模型？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-04",
+      "category": "no_answer",
+      "question": "Chroma 向量库的默认端口是多少？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "format-01",
+      "category": "format_citation",
+      "question": "用一句话回答什么是 RAG，并注明出处文档。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "01-rag-intro.md",
+        "02-rag-evaluation.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "format-02",
+      "category": "format_citation",
+      "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "format-03",
+      "category": "format_citation",
+      "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "07-hallucination-refusal.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "format-04",
+      "category": "format_citation",
+      "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "01-rag-intro.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "fact-05",
+      "category": "fact",
+      "question": "RRF 融合分数的公式是什么？k 取多少？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "fact-06",
+      "category": "fact",
+      "question": "RRF 的 k 值取 10、60、100 时，融合召回率分别是多少？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "fact-07",
+      "category": "fact",
+      "question": "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "fact-08",
+      "category": "fact",
+      "question": "混合检索时每条路线各取多少个候选？融合去重后剩多少块？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "fact-09",
+      "category": "fact",
+      "question": "融合去重用的交并比阈值是多少？取 0.85 时效果如何？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "fact-10",
+      "category": "fact",
+      "question": "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "fact-11",
+      "category": "fact",
+      "question": "embedding 维度从 384 升到 1024，召回率怎么变？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "fact-12",
+      "category": "fact",
+      "question": "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "fact-13",
+      "category": "fact",
+      "question": "重排候选 10、20、50 个时，耗时和召回率各是多少？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "01-rag-intro.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "fact-14",
+      "category": "fact",
+      "question": "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "fact-15",
+      "category": "fact",
+      "question": "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "fact-16",
+      "category": "fact",
+      "question": "重叠 0、50、100、200 字符时召回率各是多少？",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "fact-17",
+      "category": "fact",
+      "question": "语义切分的相似度阈值是多少？块内主题一致率多少？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "04-embedding-rerank.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "fact-18",
+      "category": "fact",
+      "question": "表格做文本化处理后，召回率从多少升到多少？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "04-embedding-rerank.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "fact-19",
+      "category": "fact",
+      "question": "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "06-deployment-cost.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "fact-20",
+      "category": "fact",
+      "question": "单实例吞吐量和安全并发上限是多少？",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "06-deployment-cost.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "cross-05",
+      "category": "cross_doc",
+      "question": "块大小从 500 字符降到 300 字符，粗排召回率和最终答案忠实度怎么变？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "cross-06",
+      "category": "cross_doc",
+      "question": "bge 的上下文长度对切分块大小的选择有什么约束？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "cross-07",
+      "category": "cross_doc",
+      "question": "语义切分提高召回率后，RAGAS 的哪个指标最直接受益？受益多少？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "01-rag-intro.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "cross-08",
+      "category": "cross_doc",
+      "question": "答案有据率和忠实度有什么区别？各自的目标是多少？",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true
+    },
+    {
+      "id": "cross-09",
+      "category": "cross_doc",
+      "question": "重排候选数从 20 加到 50，延迟和召回率怎么变？对总延迟意味着什么？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "01-rag-intro.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "cross-10",
+      "category": "cross_doc",
+      "question": "幻觉的三个来源占比各是多少？分别靠什么治理？",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true
+    },
+    {
+      "id": "cross-11",
+      "category": "cross_doc",
+      "question": "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "cross-12",
+      "category": "cross_doc",
+      "question": "块大小从 500 字符降到 300 字符，块数、索引体积和向量检索时间怎么变？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "03-hybrid-retrieval.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "cross-13",
+      "category": "cross_doc",
+      "question": "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "07-hallucination-refusal.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "cross-14",
+      "category": "cross_doc",
+      "question": "重排把上下文精确率从多少提升到多少？提升了几个百分点？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "cross-15",
+      "category": "cross_doc",
+      "question": "融合后分数低于最高分 30% 的块为什么要丢弃？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "cross-16",
+      "category": "cross_doc",
+      "question": "滑动窗口切分和融合去重之间有什么配合关系？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "cross-17",
+      "category": "cross_doc",
+      "question": "上线前要在测试环境跑多少条评测问题？哪四项指标恶化超过多少算不通过？",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "07-hallucination-refusal.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "cross-18",
+      "category": "cross_doc",
+      "question": "线上拒答率的目标区间是多少？低于或高于意味着什么？",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true
+    },
+    {
+      "id": "cross-19",
+      "category": "cross_doc",
+      "question": "块长 800 字符时，为什么 bge-small 比 MiniLM 更适合？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "cross-20",
+      "category": "cross_doc",
+      "question": "混合检索出问题时，排查分哪三层？故障统计里各占多少？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "multi-05",
+      "category": "multi_turn",
+      "question": "那 k 取 10 的时候，融合召回率是多少？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true,
+      "history": [
+        "RRF 融合分数的公式是什么？k 取多少？"
+      ],
+      "rewritten_question": "那 k 取 10 的时候，融合召回率是多少？ rrf 分数 公式"
+    },
+    {
+      "id": "multi-06",
+      "category": "multi_turn",
+      "question": "维度最高的那个模型体积有多大？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true,
+      "history": [
+        "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？"
+      ],
+      "rewritten_question": "维度最高的那个模型体积有多大？ minilm bge small base large 四种 embedding 各是"
+    },
+    {
+      "id": "multi-07",
+      "category": "multi_turn",
+      "question": "候选 50 个的时候，批量打分能省多少时间？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true,
+      "history": [
+        "重排候选 10、20、50 个时，耗时和召回率各是多少？"
+      ],
+      "rewritten_question": "候选 50 个的时候，批量打分能省多少时间？ 重排 耗时 召回"
+    },
+    {
+      "id": "multi-08",
+      "category": "multi_turn",
+      "question": "那 800 字符的块呢，召回率多少？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true,
+      "history": [
+        "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？"
+      ],
+      "rewritten_question": "那 800 字符的块呢，召回率多少？ 大小 峰值"
+    },
+    {
+      "id": "multi-09",
+      "category": "multi_turn",
+      "question": "重叠 200 字符时块数多多少？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true,
+      "history": [
+        "重叠 0、50、100、200 字符时召回率各是多少？"
+      ],
+      "rewritten_question": "重叠 200 字符时块数多多少？ 召回"
+    },
+    {
+      "id": "multi-10",
+      "category": "multi_turn",
+      "question": "生成占总延迟的百分之多少？",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "06-deployment-cost.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true,
+      "history": [
+        "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？"
+      ],
+      "rewritten_question": "生成占总延迟的百分之多少？ 单次 问答 中位 毫秒 环节 分别"
+    },
+    {
+      "id": "multi-11",
+      "category": "multi_turn",
+      "question": "概念类的目标是多少？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "05-chunking-advanced.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true,
+      "history": [
+        "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？"
+      ],
+      "rewritten_question": "概念类的目标是多少？ 融合 评测 问题 事实 混合 各有 各类 召回"
+    },
+    {
+      "id": "multi-12",
+      "category": "multi_turn",
+      "question": "混合后比单用向量高多少个百分点？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true,
+      "history": [
+        "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？"
+      ],
+      "rewritten_question": "混合后比单用向量高多少个百分点？ 单独 检索 bm25 召回"
+    },
+    {
+      "id": "multi-13",
+      "category": "multi_turn",
+      "question": "阈值取 0.8 的时候平均块长多少？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "04-embedding-rerank.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true,
+      "history": [
+        "语义切分的相似度阈值是多少？块内主题一致率多少？"
+      ],
+      "rewritten_question": "阈值取 0.8 的时候平均块长多少？ 语义 切分 相似 主题 一致"
+    },
+    {
+      "id": "multi-14",
+      "category": "multi_turn",
+      "question": "四个实例一起能到多少 QPS？",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "06-deployment-cost.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true,
+      "history": [
+        "单实例吞吐量和安全并发上限是多少？"
+      ],
+      "rewritten_question": "四个实例一起能到多少 QPS？ 吞吐量 安全 并发 上限"
+    },
+    {
+      "id": "multi-15",
+      "category": "multi_turn",
+      "question": "那向量库宕机降级呢，召回率降到多少？",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "06-deployment-cost.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true,
+      "history": [
+        "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？"
+      ],
+      "rewritten_question": "那向量库宕机降级呢，召回率降到多少？ 模型 服务 超时 答案 忠实度 判定 阈值"
+    },
+    {
+      "id": "multi-16",
+      "category": "multi_turn",
+      "question": "那块长 500 字符的时候呢？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true,
+      "history": [
+        "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？"
+      ],
+      "rewritten_question": "那块长 500 字符的时候呢？ minilm bge 上下文 长度 各是 两者 召回"
+    },
+    {
+      "id": "multi-17",
+      "category": "multi_turn",
+      "question": "完全支撑的目标占比是多少？",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true,
+      "history": [
+        "答案有据率和忠实度有什么区别？各自的目标是多少？"
+      ],
+      "rewritten_question": "完全支撑的目标占比是多少？ 答案 有据率 忠实度 区别 各自"
+    },
+    {
+      "id": "multi-18",
+      "category": "multi_turn",
+      "question": "追问的成功回答率是多少？",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true,
+      "history": [
+        "线上拒答率的目标区间是多少？低于或高于意味着什么？"
+      ],
+      "rewritten_question": "追问的成功回答率是多少？ 线上 拒答 目标 区间 低于 高于 意味着"
+    },
+    {
+      "id": "multi-19",
+      "category": "multi_turn",
+      "question": "融合去重时，交并比阈值取 0.7 会怎么样？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true,
+      "history": [
+        "融合去重用的交并比阈值是多少？取 0.85 时效果如何？"
+      ],
+      "rewritten_question": "融合去重时，交并比阈值取 0.7 会怎么样？ 重用 效果"
+    },
+    {
+      "id": "multi-20",
+      "category": "multi_turn",
+      "question": "英文评测集上哪个更高？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true,
+      "history": [
+        "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？"
+      ],
+      "rewritten_question": "英文评测集上哪个更高？ bge small 中文 召回 minilm"
+    },
+    {
+      "id": "refuse-05",
+      "category": "no_answer",
+      "question": "今天上海的天气怎么样？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-06",
+      "category": "no_answer",
+      "question": "茅台今天的股票涨了多少？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-07",
+      "category": "no_answer",
+      "question": "红烧肉怎么做才好吃？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-08",
+      "category": "no_answer",
+      "question": "《流浪地球》讲了什么故事？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-09",
+      "category": "no_answer",
+      "question": "2026 年世界杯在哪举办？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-10",
+      "category": "no_answer",
+      "question": "去西安旅游，有什么值得去的景点？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-11",
+      "category": "no_answer",
+      "question": "微积分里链式法则怎么用？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-12",
+      "category": "no_answer",
+      "question": "感冒发烧应该吃什么药？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-13",
+      "category": "no_answer",
+      "question": "把“你好”翻译成英文怎么说？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-14",
+      "category": "no_answer",
+      "question": "贝多芬写过哪些交响曲？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-15",
+      "category": "no_answer",
+      "question": "租房合同里押金一般怎么退？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-16",
+      "category": "no_answer",
+      "question": "王者荣耀里哪个英雄最强？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-17",
+      "category": "no_answer",
+      "question": "Milvus 向量库的默认端口是多少？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-18",
+      "category": "no_answer",
+      "question": "OpenAI 的 GPT 模型调用一次多少钱？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-19",
+      "category": "no_answer",
+      "question": "微调一个 7B 模型需要几张显卡？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-20",
+      "category": "no_answer",
+      "question": "pgvector 怎么安装配置？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "format-05",
+      "category": "format_citation",
+      "question": "用表格形式列出 RRF 的 k=10、60、100 时的融合召回率，并注明出处。",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "05-chunking-advanced.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "format-06",
+      "category": "format_citation",
+      "question": "用一句话说明 RRF 融合奖励什么样的块，并注明出处。",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "05-chunking-advanced.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "format-07",
+      "category": "format_citation",
+      "question": "分点列出 MiniLM 和 bge-small 在维度、上下文长度、中文能力和编码速度上的区别，并注明出处。",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "format-08",
+      "category": "format_citation",
+      "question": "用编号列出重排候选 10、20、50 个时的耗时和召回率，并注明出处。",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "04-embedding-rerank.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "format-09",
+      "category": "format_citation",
+      "question": "用表格列出块大小 200、300、500、800、1200 字符时的召回率，并注明出处。",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "format-10",
+      "category": "format_citation",
+      "question": "分点说明表格的三档处理方法，并注明出处。",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "format-11",
+      "category": "format_citation",
+      "question": "用编号列出单次问答延迟拆解中占比最大的两项及数值，并注明出处。",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "03-hybrid-retrieval.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "format-12",
+      "category": "format_citation",
+      "question": "分点列出缓存的两级及合计命中率，并注明出处。",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "06-deployment-cost.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "format-13",
+      "category": "format_citation",
+      "question": "用表格列出门槛 0.2、0.32、0.5 时的拒答准确率和误拒率，并注明出处。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true
+    },
+    {
+      "id": "format-14",
+      "category": "format_citation",
+      "question": "分点列出幻觉的三个来源及占比，并注明出处。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "03-hybrid-retrieval.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true
+    },
+    {
+      "id": "format-15",
+      "category": "format_citation",
+      "question": "用编号列出拒答失败的五种模式及占比，并注明出处。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true
+    },
+    {
+      "id": "format-16",
+      "category": "format_citation",
+      "question": "用一句话说明四实例吞吐量为什么不是单实例的四倍，并注明出处。",
+      "hit_docs": [
+        "06-deployment-cost.md",
+        "06-deployment-cost.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "06-deployment-cost.md",
+      "correct": true
+    },
+    {
+      "id": "format-17",
+      "category": "format_citation",
+      "question": "分点说明语义切分的优点和代价，并注明出处。",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "05-chunking-advanced.md",
+      "correct": true
+    },
+    {
+      "id": "format-18",
+      "category": "format_citation",
+      "question": "用表格列出四种 embedding 模型的维度、编码速度和体积，并注明出处。",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "04-embedding-rerank.md",
+      "correct": true
+    },
+    {
+      "id": "format-19",
+      "category": "format_citation",
+      "question": "用编号列出融合排查的三层及故障占比，并注明出处。",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "03-hybrid-retrieval.md",
+      "correct": true
+    },
+    {
+      "id": "format-20",
+      "category": "format_citation",
+      "question": "拒答评测集有一百条问题，其中二十条应该拒答，分哪四类？分点列出并注明出处。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "07-hallucination-refusal.md",
+      "correct": true
+    }
+  ],
+  "embedding": {
+    "model": "BAAI/bge-small-zh-v1.5 (sentence-transformers, 512-dim, normalized)",
+    "download_mb": null,
+    "cache_dir": "/home/hatch/.cache/huggingface/hub/models--BAAI--bge-small-zh-v1.5",
+    "cache_size_mb": 96.4,
+    "persist_dir": "/home/hatch/workspace/goals/daily-study-plan-and-paper-push/files/rag-project-1/data/chroma"
+  },
+  "comparison": {
+    "bm25": {
+      "method": "BM25 (jieba) + min-2-content-overlap refusal gate, top_k=3 + query rewrite from follow_up_to history",
+      "total": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "top1_correct": 88,
+      "top1_accuracy": 0.88,
+      "per_category": {
+        "fact": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "cross_doc": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "multi_turn": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "no_answer": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "format_citation": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "fact-01",
+          "category": "fact",
+          "question": "什么是 RAG？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "01-rag-intro.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-02",
+          "category": "fact",
+          "question": "RAG 文档切分一般多大？重叠多少字符？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-03",
+          "category": "fact",
+          "question": "混合检索为什么比单一检索好？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-04",
+          "category": "fact",
+          "question": "重排 reranker 在 RAG 里起什么作用？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "02-rag-evaluation.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "cross-01",
+          "category": "cross_doc",
+          "question": "切分策略如何影响评测中的上下文召回率？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "cross-02",
+          "category": "cross_doc",
+          "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "cross-03",
+          "category": "cross_doc",
+          "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "cross-04",
+          "category": "cross_doc",
+          "question": "做消融实验时，一次只改一个变量，为什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-01",
+          "category": "multi_turn",
+          "question": "那它和单纯向量检索比有什么优势？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true,
+          "history": [
+            "混合检索为什么比单一检索好？"
+          ],
+          "rewritten_question": "那它和单纯向量检索比有什么优势？ 混合 单一"
+        },
+        {
+          "id": "multi-02",
+          "category": "multi_turn",
+          "question": "刚才说的重叠，具体是多少字符？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true,
+          "history": [
+            "RAG 文档切分一般多大？重叠多少字符？"
+          ],
+          "rewritten_question": "刚才说的重叠，具体是多少字符？ rag 文档 切分 一般 多大"
+        },
+        {
+          "id": "multi-03",
+          "category": "multi_turn",
+          "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-04",
+          "category": "multi_turn",
+          "question": "如果检索没召回，下一步应该先改什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "refuse-01",
+          "category": "no_answer",
+          "question": "2026 年最新发布的大模型有哪些？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-02",
+          "category": "no_answer",
+          "question": "今天北京的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-03",
+          "category": "no_answer",
+          "question": "如何用 LoRA 微调一个开源小模型？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-04",
+          "category": "no_answer",
+          "question": "Chroma 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-01",
+          "category": "format_citation",
+          "question": "用一句话回答什么是 RAG，并注明出处文档。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-02",
+          "category": "format_citation",
+          "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "format-03",
+          "category": "format_citation",
+          "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-04",
+          "category": "format_citation",
+          "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-05",
+          "category": "fact",
+          "question": "RRF 融合分数的公式是什么？k 取多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-06",
+          "category": "fact",
+          "question": "RRF 的 k 值取 10、60、100 时，融合召回率分别是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-07",
+          "category": "fact",
+          "question": "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-08",
+          "category": "fact",
+          "question": "混合检索时每条路线各取多少个候选？融合去重后剩多少块？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-09",
+          "category": "fact",
+          "question": "融合去重用的交并比阈值是多少？取 0.85 时效果如何？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-10",
+          "category": "fact",
+          "question": "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-11",
+          "category": "fact",
+          "question": "embedding 维度从 384 升到 1024，召回率怎么变？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-12",
+          "category": "fact",
+          "question": "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-13",
+          "category": "fact",
+          "question": "重排候选 10、20、50 个时，耗时和召回率各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "01-rag-intro.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-14",
+          "category": "fact",
+          "question": "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-15",
+          "category": "fact",
+          "question": "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-16",
+          "category": "fact",
+          "question": "重叠 0、50、100、200 字符时召回率各是多少？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-17",
+          "category": "fact",
+          "question": "语义切分的相似度阈值是多少？块内主题一致率多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "04-embedding-rerank.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-18",
+          "category": "fact",
+          "question": "表格做文本化处理后，召回率从多少升到多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-19",
+          "category": "fact",
+          "question": "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "fact-20",
+          "category": "fact",
+          "question": "单实例吞吐量和安全并发上限是多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-05",
+          "category": "cross_doc",
+          "question": "块大小从 500 字符降到 300 字符，粗排召回率和最终答案忠实度怎么变？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-06",
+          "category": "cross_doc",
+          "question": "bge 的上下文长度对切分块大小的选择有什么约束？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-07",
+          "category": "cross_doc",
+          "question": "语义切分提高召回率后，RAGAS 的哪个指标最直接受益？受益多少？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "01-rag-intro.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-08",
+          "category": "cross_doc",
+          "question": "答案有据率和忠实度有什么区别？各自的目标是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-09",
+          "category": "cross_doc",
+          "question": "重排候选数从 20 加到 50，延迟和召回率怎么变？对总延迟意味着什么？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "01-rag-intro.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-10",
+          "category": "cross_doc",
+          "question": "幻觉的三个来源占比各是多少？分别靠什么治理？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-11",
+          "category": "cross_doc",
+          "question": "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "cross-12",
+          "category": "cross_doc",
+          "question": "块大小从 500 字符降到 300 字符，块数、索引体积和向量检索时间怎么变？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-13",
+          "category": "cross_doc",
+          "question": "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "07-hallucination-refusal.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-14",
+          "category": "cross_doc",
+          "question": "重排把上下文精确率从多少提升到多少？提升了几个百分点？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-15",
+          "category": "cross_doc",
+          "question": "融合后分数低于最高分 30% 的块为什么要丢弃？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "cross-16",
+          "category": "cross_doc",
+          "question": "滑动窗口切分和融合去重之间有什么配合关系？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-17",
+          "category": "cross_doc",
+          "question": "上线前要在测试环境跑多少条评测问题？哪四项指标恶化超过多少算不通过？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "07-hallucination-refusal.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-18",
+          "category": "cross_doc",
+          "question": "线上拒答率的目标区间是多少？低于或高于意味着什么？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-19",
+          "category": "cross_doc",
+          "question": "块长 800 字符时，为什么 bge-small 比 MiniLM 更适合？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-20",
+          "category": "cross_doc",
+          "question": "混合检索出问题时，排查分哪三层？故障统计里各占多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "multi-05",
+          "category": "multi_turn",
+          "question": "那 k 取 10 的时候，融合召回率是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "RRF 融合分数的公式是什么？k 取多少？"
+          ],
+          "rewritten_question": "那 k 取 10 的时候，融合召回率是多少？ rrf 分数 公式"
+        },
+        {
+          "id": "multi-06",
+          "category": "multi_turn",
+          "question": "维度最高的那个模型体积有多大？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？"
+          ],
+          "rewritten_question": "维度最高的那个模型体积有多大？ minilm bge small base large 四种 embedding 各是"
+        },
+        {
+          "id": "multi-07",
+          "category": "multi_turn",
+          "question": "候选 50 个的时候，批量打分能省多少时间？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "重排候选 10、20、50 个时，耗时和召回率各是多少？"
+          ],
+          "rewritten_question": "候选 50 个的时候，批量打分能省多少时间？ 重排 耗时 召回"
+        },
+        {
+          "id": "multi-08",
+          "category": "multi_turn",
+          "question": "那 800 字符的块呢，召回率多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？"
+          ],
+          "rewritten_question": "那 800 字符的块呢，召回率多少？ 大小 峰值"
+        },
+        {
+          "id": "multi-09",
+          "category": "multi_turn",
+          "question": "重叠 200 字符时块数多多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "重叠 0、50、100、200 字符时召回率各是多少？"
+          ],
+          "rewritten_question": "重叠 200 字符时块数多多少？ 召回"
+        },
+        {
+          "id": "multi-10",
+          "category": "multi_turn",
+          "question": "生成占总延迟的百分之多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？"
+          ],
+          "rewritten_question": "生成占总延迟的百分之多少？ 单次 问答 中位 毫秒 环节 分别"
+        },
+        {
+          "id": "multi-11",
+          "category": "multi_turn",
+          "question": "概念类的目标是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？"
+          ],
+          "rewritten_question": "概念类的目标是多少？ 融合 评测 问题 事实 混合 各有 各类 召回"
+        },
+        {
+          "id": "multi-12",
+          "category": "multi_turn",
+          "question": "混合后比单用向量高多少个百分点？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？"
+          ],
+          "rewritten_question": "混合后比单用向量高多少个百分点？ 单独 检索 bm25 召回"
+        },
+        {
+          "id": "multi-13",
+          "category": "multi_turn",
+          "question": "阈值取 0.8 的时候平均块长多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "04-embedding-rerank.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "语义切分的相似度阈值是多少？块内主题一致率多少？"
+          ],
+          "rewritten_question": "阈值取 0.8 的时候平均块长多少？ 语义 切分 相似 主题 一致"
+        },
+        {
+          "id": "multi-14",
+          "category": "multi_turn",
+          "question": "四个实例一起能到多少 QPS？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "单实例吞吐量和安全并发上限是多少？"
+          ],
+          "rewritten_question": "四个实例一起能到多少 QPS？ 吞吐量 安全 并发 上限"
+        },
+        {
+          "id": "multi-15",
+          "category": "multi_turn",
+          "question": "那向量库宕机降级呢，召回率降到多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？"
+          ],
+          "rewritten_question": "那向量库宕机降级呢，召回率降到多少？ 模型 服务 超时 答案 忠实度 判定 阈值"
+        },
+        {
+          "id": "multi-16",
+          "category": "multi_turn",
+          "question": "那块长 500 字符的时候呢？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？"
+          ],
+          "rewritten_question": "那块长 500 字符的时候呢？ minilm bge 上下文 长度 各是 两者 召回"
+        },
+        {
+          "id": "multi-17",
+          "category": "multi_turn",
+          "question": "完全支撑的目标占比是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true,
+          "history": [
+            "答案有据率和忠实度有什么区别？各自的目标是多少？"
+          ],
+          "rewritten_question": "完全支撑的目标占比是多少？ 答案 有据率 忠实度 区别 各自"
+        },
+        {
+          "id": "multi-18",
+          "category": "multi_turn",
+          "question": "追问的成功回答率是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true,
+          "history": [
+            "线上拒答率的目标区间是多少？低于或高于意味着什么？"
+          ],
+          "rewritten_question": "追问的成功回答率是多少？ 线上 拒答 目标 区间 低于 高于 意味着"
+        },
+        {
+          "id": "multi-19",
+          "category": "multi_turn",
+          "question": "融合去重时，交并比阈值取 0.7 会怎么样？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "融合去重用的交并比阈值是多少？取 0.85 时效果如何？"
+          ],
+          "rewritten_question": "融合去重时，交并比阈值取 0.7 会怎么样？ 重用 效果"
+        },
+        {
+          "id": "multi-20",
+          "category": "multi_turn",
+          "question": "英文评测集上哪个更高？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？"
+          ],
+          "rewritten_question": "英文评测集上哪个更高？ bge small 中文 召回 minilm"
+        },
+        {
+          "id": "refuse-05",
+          "category": "no_answer",
+          "question": "今天上海的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-06",
+          "category": "no_answer",
+          "question": "茅台今天的股票涨了多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-07",
+          "category": "no_answer",
+          "question": "红烧肉怎么做才好吃？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-08",
+          "category": "no_answer",
+          "question": "《流浪地球》讲了什么故事？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-09",
+          "category": "no_answer",
+          "question": "2026 年世界杯在哪举办？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-10",
+          "category": "no_answer",
+          "question": "去西安旅游，有什么值得去的景点？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-11",
+          "category": "no_answer",
+          "question": "微积分里链式法则怎么用？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-12",
+          "category": "no_answer",
+          "question": "感冒发烧应该吃什么药？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-13",
+          "category": "no_answer",
+          "question": "把“你好”翻译成英文怎么说？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-14",
+          "category": "no_answer",
+          "question": "贝多芬写过哪些交响曲？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-15",
+          "category": "no_answer",
+          "question": "租房合同里押金一般怎么退？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-16",
+          "category": "no_answer",
+          "question": "王者荣耀里哪个英雄最强？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-17",
+          "category": "no_answer",
+          "question": "Milvus 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-18",
+          "category": "no_answer",
+          "question": "OpenAI 的 GPT 模型调用一次多少钱？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-19",
+          "category": "no_answer",
+          "question": "微调一个 7B 模型需要几张显卡？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-20",
+          "category": "no_answer",
+          "question": "pgvector 怎么安装配置？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-05",
+          "category": "format_citation",
+          "question": "用表格形式列出 RRF 的 k=10、60、100 时的融合召回率，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-06",
+          "category": "format_citation",
+          "question": "用一句话说明 RRF 融合奖励什么样的块，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-07",
+          "category": "format_citation",
+          "question": "分点列出 MiniLM 和 bge-small 在维度、上下文长度、中文能力和编码速度上的区别，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-08",
+          "category": "format_citation",
+          "question": "用编号列出重排候选 10、20、50 个时的耗时和召回率，并注明出处。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-09",
+          "category": "format_citation",
+          "question": "用表格列出块大小 200、300、500、800、1200 字符时的召回率，并注明出处。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-10",
+          "category": "format_citation",
+          "question": "分点说明表格的三档处理方法，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-11",
+          "category": "format_citation",
+          "question": "用编号列出单次问答延迟拆解中占比最大的两项及数值，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "03-hybrid-retrieval.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-12",
+          "category": "format_citation",
+          "question": "分点列出缓存的两级及合计命中率，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-13",
+          "category": "format_citation",
+          "question": "用表格列出门槛 0.2、0.32、0.5 时的拒答准确率和误拒率，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-14",
+          "category": "format_citation",
+          "question": "分点列出幻觉的三个来源及占比，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-15",
+          "category": "format_citation",
+          "question": "用编号列出拒答失败的五种模式及占比，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-16",
+          "category": "format_citation",
+          "question": "用一句话说明四实例吞吐量为什么不是单实例的四倍，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-17",
+          "category": "format_citation",
+          "question": "分点说明语义切分的优点和代价，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-18",
+          "category": "format_citation",
+          "question": "用表格列出四种 embedding 模型的维度、编码速度和体积，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-19",
+          "category": "format_citation",
+          "question": "用编号列出融合排查的三层及故障占比，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-20",
+          "category": "format_citation",
+          "question": "拒答评测集有一百条问题，其中二十条应该拒答，分哪四类？分点列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        }
+      ]
+    },
+    "vector": {
+      "method": "Chroma vector (bge-small-zh-v1.5) + same refusal gate, top_k=3 + query rewrite from follow_up_to history",
+      "total": 100,
+      "correct": 91,
+      "accuracy": 0.91,
+      "top1_correct": 84,
+      "top1_accuracy": 0.84,
+      "per_category": {
+        "fact": {
+          "total": 20,
+          "correct": 18,
+          "accuracy": 0.9
+        },
+        "cross_doc": {
+          "total": 20,
+          "correct": 16,
+          "accuracy": 0.8
+        },
+        "multi_turn": {
+          "total": 20,
+          "correct": 19,
+          "accuracy": 0.95
+        },
+        "no_answer": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "format_citation": {
+          "total": 20,
+          "correct": 18,
+          "accuracy": 0.9
+        }
+      },
+      "details": [
+        {
+          "id": "fact-01",
+          "category": "fact",
+          "question": "什么是 RAG？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-02",
+          "category": "fact",
+          "question": "RAG 文档切分一般多大？重叠多少字符？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        },
+        {
+          "id": "fact-03",
+          "category": "fact",
+          "question": "混合检索为什么比单一检索好？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-04",
+          "category": "fact",
+          "question": "重排 reranker 在 RAG 里起什么作用？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "01-rag-intro.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "cross-01",
+          "category": "cross_doc",
+          "question": "切分策略如何影响评测中的上下文召回率？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-02",
+          "category": "cross_doc",
+          "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-03",
+          "category": "cross_doc",
+          "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-04",
+          "category": "cross_doc",
+          "question": "做消融实验时，一次只改一个变量，为什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-01",
+          "category": "multi_turn",
+          "question": "那它和单纯向量检索比有什么优势？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true,
+          "history": [
+            "混合检索为什么比单一检索好？"
+          ],
+          "rewritten_question": "那它和单纯向量检索比有什么优势？ 混合 单一"
+        },
+        {
+          "id": "multi-02",
+          "category": "multi_turn",
+          "question": "刚才说的重叠，具体是多少字符？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true,
+          "history": [
+            "RAG 文档切分一般多大？重叠多少字符？"
+          ],
+          "rewritten_question": "刚才说的重叠，具体是多少字符？ rag 文档 切分 一般 多大"
+        },
+        {
+          "id": "multi-03",
+          "category": "multi_turn",
+          "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "multi-04",
+          "category": "multi_turn",
+          "question": "如果检索没召回，下一步应该先改什么？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "06-deployment-cost.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "refuse-01",
+          "category": "no_answer",
+          "question": "2026 年最新发布的大模型有哪些？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-02",
+          "category": "no_answer",
+          "question": "今天北京的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-03",
+          "category": "no_answer",
+          "question": "如何用 LoRA 微调一个开源小模型？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-04",
+          "category": "no_answer",
+          "question": "Chroma 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-01",
+          "category": "format_citation",
+          "question": "用一句话回答什么是 RAG，并注明出处文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-02",
+          "category": "format_citation",
+          "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "01-rag-intro.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "format-03",
+          "category": "format_citation",
+          "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "04-embedding-rerank.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-04",
+          "category": "format_citation",
+          "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        },
+        {
+          "id": "fact-05",
+          "category": "fact",
+          "question": "RRF 融合分数的公式是什么？k 取多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-06",
+          "category": "fact",
+          "question": "RRF 的 k 值取 10、60、100 时，融合召回率分别是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-07",
+          "category": "fact",
+          "question": "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-08",
+          "category": "fact",
+          "question": "混合检索时每条路线各取多少个候选？融合去重后剩多少块？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-09",
+          "category": "fact",
+          "question": "融合去重用的交并比阈值是多少？取 0.85 时效果如何？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-10",
+          "category": "fact",
+          "question": "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-11",
+          "category": "fact",
+          "question": "embedding 维度从 384 升到 1024，召回率怎么变？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-12",
+          "category": "fact",
+          "question": "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-13",
+          "category": "fact",
+          "question": "重排候选 10、20、50 个时，耗时和召回率各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-14",
+          "category": "fact",
+          "question": "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-15",
+          "category": "fact",
+          "question": "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-16",
+          "category": "fact",
+          "question": "重叠 0、50、100、200 字符时召回率各是多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-17",
+          "category": "fact",
+          "question": "语义切分的相似度阈值是多少？块内主题一致率多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-18",
+          "category": "fact",
+          "question": "表格做文本化处理后，召回率从多少升到多少？",
+          "hit_docs": [],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": false
+        },
+        {
+          "id": "fact-19",
+          "category": "fact",
+          "question": "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "fact-20",
+          "category": "fact",
+          "question": "单实例吞吐量和安全并发上限是多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-05",
+          "category": "cross_doc",
+          "question": "块大小从 500 字符降到 300 字符，粗排召回率和最终答案忠实度怎么变？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-06",
+          "category": "cross_doc",
+          "question": "bge 的上下文长度对切分块大小的选择有什么约束？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-07",
+          "category": "cross_doc",
+          "question": "语义切分提高召回率后，RAGAS 的哪个指标最直接受益？受益多少？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-08",
+          "category": "cross_doc",
+          "question": "答案有据率和忠实度有什么区别？各自的目标是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-09",
+          "category": "cross_doc",
+          "question": "重排候选数从 20 加到 50，延迟和召回率怎么变？对总延迟意味着什么？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-10",
+          "category": "cross_doc",
+          "question": "幻觉的三个来源占比各是多少？分别靠什么治理？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-11",
+          "category": "cross_doc",
+          "question": "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "cross-12",
+          "category": "cross_doc",
+          "question": "块大小从 500 字符降到 300 字符，块数、索引体积和向量检索时间怎么变？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-13",
+          "category": "cross_doc",
+          "question": "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "07-hallucination-refusal.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-14",
+          "category": "cross_doc",
+          "question": "重排把上下文精确率从多少提升到多少？提升了几个百分点？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-15",
+          "category": "cross_doc",
+          "question": "融合后分数低于最高分 30% 的块为什么要丢弃？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "cross-16",
+          "category": "cross_doc",
+          "question": "滑动窗口切分和融合去重之间有什么配合关系？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-17",
+          "category": "cross_doc",
+          "question": "上线前要在测试环境跑多少条评测问题？哪四项指标恶化超过多少算不通过？",
+          "hit_docs": [],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": false
+        },
+        {
+          "id": "cross-18",
+          "category": "cross_doc",
+          "question": "线上拒答率的目标区间是多少？低于或高于意味着什么？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-19",
+          "category": "cross_doc",
+          "question": "块长 800 字符时，为什么 bge-small 比 MiniLM 更适合？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-20",
+          "category": "cross_doc",
+          "question": "混合检索出问题时，排查分哪三层？故障统计里各占多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "multi-05",
+          "category": "multi_turn",
+          "question": "那 k 取 10 的时候，融合召回率是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "RRF 融合分数的公式是什么？k 取多少？"
+          ],
+          "rewritten_question": "那 k 取 10 的时候，融合召回率是多少？ rrf 分数 公式"
+        },
+        {
+          "id": "multi-06",
+          "category": "multi_turn",
+          "question": "维度最高的那个模型体积有多大？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？"
+          ],
+          "rewritten_question": "维度最高的那个模型体积有多大？ minilm bge small base large 四种 embedding 各是"
+        },
+        {
+          "id": "multi-07",
+          "category": "multi_turn",
+          "question": "候选 50 个的时候，批量打分能省多少时间？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "重排候选 10、20、50 个时，耗时和召回率各是多少？"
+          ],
+          "rewritten_question": "候选 50 个的时候，批量打分能省多少时间？ 重排 耗时 召回"
+        },
+        {
+          "id": "multi-08",
+          "category": "multi_turn",
+          "question": "那 800 字符的块呢，召回率多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？"
+          ],
+          "rewritten_question": "那 800 字符的块呢，召回率多少？ 大小 峰值"
+        },
+        {
+          "id": "multi-09",
+          "category": "multi_turn",
+          "question": "重叠 200 字符时块数多多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "重叠 0、50、100、200 字符时召回率各是多少？"
+          ],
+          "rewritten_question": "重叠 200 字符时块数多多少？ 召回"
+        },
+        {
+          "id": "multi-10",
+          "category": "multi_turn",
+          "question": "生成占总延迟的百分之多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？"
+          ],
+          "rewritten_question": "生成占总延迟的百分之多少？ 单次 问答 中位 毫秒 环节 分别"
+        },
+        {
+          "id": "multi-11",
+          "category": "multi_turn",
+          "question": "概念类的目标是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？"
+          ],
+          "rewritten_question": "概念类的目标是多少？ 融合 评测 问题 事实 混合 各有 各类 召回"
+        },
+        {
+          "id": "multi-12",
+          "category": "multi_turn",
+          "question": "混合后比单用向量高多少个百分点？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？"
+          ],
+          "rewritten_question": "混合后比单用向量高多少个百分点？ 单独 检索 bm25 召回"
+        },
+        {
+          "id": "multi-13",
+          "category": "multi_turn",
+          "question": "阈值取 0.8 的时候平均块长多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "语义切分的相似度阈值是多少？块内主题一致率多少？"
+          ],
+          "rewritten_question": "阈值取 0.8 的时候平均块长多少？ 语义 切分 相似 主题 一致"
+        },
+        {
+          "id": "multi-14",
+          "category": "multi_turn",
+          "question": "四个实例一起能到多少 QPS？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "单实例吞吐量和安全并发上限是多少？"
+          ],
+          "rewritten_question": "四个实例一起能到多少 QPS？ 吞吐量 安全 并发 上限"
+        },
+        {
+          "id": "multi-15",
+          "category": "multi_turn",
+          "question": "那向量库宕机降级呢，召回率降到多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？"
+          ],
+          "rewritten_question": "那向量库宕机降级呢，召回率降到多少？ 模型 服务 超时 答案 忠实度 判定 阈值"
+        },
+        {
+          "id": "multi-16",
+          "category": "multi_turn",
+          "question": "那块长 500 字符的时候呢？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？"
+          ],
+          "rewritten_question": "那块长 500 字符的时候呢？ minilm bge 上下文 长度 各是 两者 召回"
+        },
+        {
+          "id": "multi-17",
+          "category": "multi_turn",
+          "question": "完全支撑的目标占比是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true,
+          "history": [
+            "答案有据率和忠实度有什么区别？各自的目标是多少？"
+          ],
+          "rewritten_question": "完全支撑的目标占比是多少？ 答案 有据率 忠实度 区别 各自"
+        },
+        {
+          "id": "multi-18",
+          "category": "multi_turn",
+          "question": "追问的成功回答率是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true,
+          "history": [
+            "线上拒答率的目标区间是多少？低于或高于意味着什么？"
+          ],
+          "rewritten_question": "追问的成功回答率是多少？ 线上 拒答 目标 区间 低于 高于 意味着"
+        },
+        {
+          "id": "multi-19",
+          "category": "multi_turn",
+          "question": "融合去重时，交并比阈值取 0.7 会怎么样？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "融合去重用的交并比阈值是多少？取 0.85 时效果如何？"
+          ],
+          "rewritten_question": "融合去重时，交并比阈值取 0.7 会怎么样？ 重用 效果"
+        },
+        {
+          "id": "multi-20",
+          "category": "multi_turn",
+          "question": "英文评测集上哪个更高？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？"
+          ],
+          "rewritten_question": "英文评测集上哪个更高？ bge small 中文 召回 minilm"
+        },
+        {
+          "id": "refuse-05",
+          "category": "no_answer",
+          "question": "今天上海的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-06",
+          "category": "no_answer",
+          "question": "茅台今天的股票涨了多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-07",
+          "category": "no_answer",
+          "question": "红烧肉怎么做才好吃？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-08",
+          "category": "no_answer",
+          "question": "《流浪地球》讲了什么故事？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-09",
+          "category": "no_answer",
+          "question": "2026 年世界杯在哪举办？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-10",
+          "category": "no_answer",
+          "question": "去西安旅游，有什么值得去的景点？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-11",
+          "category": "no_answer",
+          "question": "微积分里链式法则怎么用？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-12",
+          "category": "no_answer",
+          "question": "感冒发烧应该吃什么药？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-13",
+          "category": "no_answer",
+          "question": "把“你好”翻译成英文怎么说？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-14",
+          "category": "no_answer",
+          "question": "贝多芬写过哪些交响曲？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-15",
+          "category": "no_answer",
+          "question": "租房合同里押金一般怎么退？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-16",
+          "category": "no_answer",
+          "question": "王者荣耀里哪个英雄最强？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-17",
+          "category": "no_answer",
+          "question": "Milvus 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-18",
+          "category": "no_answer",
+          "question": "OpenAI 的 GPT 模型调用一次多少钱？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-19",
+          "category": "no_answer",
+          "question": "微调一个 7B 模型需要几张显卡？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-20",
+          "category": "no_answer",
+          "question": "pgvector 怎么安装配置？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-05",
+          "category": "format_citation",
+          "question": "用表格形式列出 RRF 的 k=10、60、100 时的融合召回率，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-06",
+          "category": "format_citation",
+          "question": "用一句话说明 RRF 融合奖励什么样的块，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-07",
+          "category": "format_citation",
+          "question": "分点列出 MiniLM 和 bge-small 在维度、上下文长度、中文能力和编码速度上的区别，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-08",
+          "category": "format_citation",
+          "question": "用编号列出重排候选 10、20、50 个时的耗时和召回率，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-09",
+          "category": "format_citation",
+          "question": "用表格列出块大小 200、300、500、800、1200 字符时的召回率，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-10",
+          "category": "format_citation",
+          "question": "分点说明表格的三档处理方法，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-11",
+          "category": "format_citation",
+          "question": "用编号列出单次问答延迟拆解中占比最大的两项及数值，并注明出处。",
+          "hit_docs": [],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": false
+        },
+        {
+          "id": "format-12",
+          "category": "format_citation",
+          "question": "分点列出缓存的两级及合计命中率，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-13",
+          "category": "format_citation",
+          "question": "用表格列出门槛 0.2、0.32、0.5 时的拒答准确率和误拒率，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-14",
+          "category": "format_citation",
+          "question": "分点列出幻觉的三个来源及占比，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-15",
+          "category": "format_citation",
+          "question": "用编号列出拒答失败的五种模式及占比，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-16",
+          "category": "format_citation",
+          "question": "用一句话说明四实例吞吐量为什么不是单实例的四倍，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-17",
+          "category": "format_citation",
+          "question": "分点说明语义切分的优点和代价，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-18",
+          "category": "format_citation",
+          "question": "用表格列出四种 embedding 模型的维度、编码速度和体积，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-19",
+          "category": "format_citation",
+          "question": "用编号列出融合排查的三层及故障占比，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-20",
+          "category": "format_citation",
+          "question": "拒答评测集有一百条问题，其中二十条应该拒答，分哪四类？分点列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        }
+      ]
+    },
+    "hybrid": {
+      "method": "BM25 + vector (bge-small-zh-v1.5), RRF k=60 + same refusal gate, top_k=3 + query rewrite from follow_up_to history",
+      "total": 100,
+      "correct": 97,
+      "accuracy": 0.97,
+      "top1_correct": 90,
+      "top1_accuracy": 0.9,
+      "per_category": {
+        "fact": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "cross_doc": {
+          "total": 20,
+          "correct": 17,
+          "accuracy": 0.85
+        },
+        "multi_turn": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "no_answer": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "format_citation": {
+          "total": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "fact-01",
+          "category": "fact",
+          "question": "什么是 RAG？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-02",
+          "category": "fact",
+          "question": "RAG 文档切分一般多大？重叠多少字符？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-03",
+          "category": "fact",
+          "question": "混合检索为什么比单一检索好？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-04",
+          "category": "fact",
+          "question": "重排 reranker 在 RAG 里起什么作用？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "cross-01",
+          "category": "cross_doc",
+          "question": "切分策略如何影响评测中的上下文召回率？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-02",
+          "category": "cross_doc",
+          "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "01-rag-intro.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-03",
+          "category": "cross_doc",
+          "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-04",
+          "category": "cross_doc",
+          "question": "做消融实验时，一次只改一个变量，为什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-01",
+          "category": "multi_turn",
+          "question": "那它和单纯向量检索比有什么优势？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true,
+          "history": [
+            "混合检索为什么比单一检索好？"
+          ],
+          "rewritten_question": "那它和单纯向量检索比有什么优势？ 混合 单一"
+        },
+        {
+          "id": "multi-02",
+          "category": "multi_turn",
+          "question": "刚才说的重叠，具体是多少字符？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true,
+          "history": [
+            "RAG 文档切分一般多大？重叠多少字符？"
+          ],
+          "rewritten_question": "刚才说的重叠，具体是多少字符？ rag 文档 切分 一般 多大"
+        },
+        {
+          "id": "multi-03",
+          "category": "multi_turn",
+          "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-04",
+          "category": "multi_turn",
+          "question": "如果检索没召回，下一步应该先改什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "03-hybrid-retrieval.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "refuse-01",
+          "category": "no_answer",
+          "question": "2026 年最新发布的大模型有哪些？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-02",
+          "category": "no_answer",
+          "question": "今天北京的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-03",
+          "category": "no_answer",
+          "question": "如何用 LoRA 微调一个开源小模型？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-04",
+          "category": "no_answer",
+          "question": "Chroma 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-01",
+          "category": "format_citation",
+          "question": "用一句话回答什么是 RAG，并注明出处文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-02",
+          "category": "format_citation",
+          "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "format-03",
+          "category": "format_citation",
+          "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "04-embedding-rerank.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-04",
+          "category": "format_citation",
+          "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-05",
+          "category": "fact",
+          "question": "RRF 融合分数的公式是什么？k 取多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-06",
+          "category": "fact",
+          "question": "RRF 的 k 值取 10、60、100 时，融合召回率分别是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-07",
+          "category": "fact",
+          "question": "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-08",
+          "category": "fact",
+          "question": "混合检索时每条路线各取多少个候选？融合去重后剩多少块？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-09",
+          "category": "fact",
+          "question": "融合去重用的交并比阈值是多少？取 0.85 时效果如何？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "fact-10",
+          "category": "fact",
+          "question": "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-11",
+          "category": "fact",
+          "question": "embedding 维度从 384 升到 1024，召回率怎么变？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-12",
+          "category": "fact",
+          "question": "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-13",
+          "category": "fact",
+          "question": "重排候选 10、20、50 个时，耗时和召回率各是多少？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-14",
+          "category": "fact",
+          "question": "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "fact-15",
+          "category": "fact",
+          "question": "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-16",
+          "category": "fact",
+          "question": "重叠 0、50、100、200 字符时召回率各是多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-17",
+          "category": "fact",
+          "question": "语义切分的相似度阈值是多少？块内主题一致率多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-18",
+          "category": "fact",
+          "question": "表格做文本化处理后，召回率从多少升到多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "fact-19",
+          "category": "fact",
+          "question": "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "fact-20",
+          "category": "fact",
+          "question": "单实例吞吐量和安全并发上限是多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-05",
+          "category": "cross_doc",
+          "question": "块大小从 500 字符降到 300 字符，粗排召回率和最终答案忠实度怎么变？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-06",
+          "category": "cross_doc",
+          "question": "bge 的上下文长度对切分块大小的选择有什么约束？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-07",
+          "category": "cross_doc",
+          "question": "语义切分提高召回率后，RAGAS 的哪个指标最直接受益？受益多少？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-08",
+          "category": "cross_doc",
+          "question": "答案有据率和忠实度有什么区别？各自的目标是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-09",
+          "category": "cross_doc",
+          "question": "重排候选数从 20 加到 50，延迟和召回率怎么变？对总延迟意味着什么？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-10",
+          "category": "cross_doc",
+          "question": "幻觉的三个来源占比各是多少？分别靠什么治理？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-11",
+          "category": "cross_doc",
+          "question": "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "cross-12",
+          "category": "cross_doc",
+          "question": "块大小从 500 字符降到 300 字符，块数、索引体积和向量检索时间怎么变？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-13",
+          "category": "cross_doc",
+          "question": "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "07-hallucination-refusal.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-14",
+          "category": "cross_doc",
+          "question": "重排把上下文精确率从多少提升到多少？提升了几个百分点？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-15",
+          "category": "cross_doc",
+          "question": "融合后分数低于最高分 30% 的块为什么要丢弃？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "cross-16",
+          "category": "cross_doc",
+          "question": "滑动窗口切分和融合去重之间有什么配合关系？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "cross-17",
+          "category": "cross_doc",
+          "question": "上线前要在测试环境跑多少条评测问题？哪四项指标恶化超过多少算不通过？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "cross-18",
+          "category": "cross_doc",
+          "question": "线上拒答率的目标区间是多少？低于或高于意味着什么？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "cross-19",
+          "category": "cross_doc",
+          "question": "块长 800 字符时，为什么 bge-small 比 MiniLM 更适合？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "cross-20",
+          "category": "cross_doc",
+          "question": "混合检索出问题时，排查分哪三层？故障统计里各占多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "multi-05",
+          "category": "multi_turn",
+          "question": "那 k 取 10 的时候，融合召回率是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "RRF 融合分数的公式是什么？k 取多少？"
+          ],
+          "rewritten_question": "那 k 取 10 的时候，融合召回率是多少？ rrf 分数 公式"
+        },
+        {
+          "id": "multi-06",
+          "category": "multi_turn",
+          "question": "维度最高的那个模型体积有多大？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "MiniLM、bge-small、bge-base、bge-large 四种 embedding 模型的维度各是多少？"
+          ],
+          "rewritten_question": "维度最高的那个模型体积有多大？ minilm bge small base large 四种 embedding 各是"
+        },
+        {
+          "id": "multi-07",
+          "category": "multi_turn",
+          "question": "候选 50 个的时候，批量打分能省多少时间？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "重排候选 10、20、50 个时，耗时和召回率各是多少？"
+          ],
+          "rewritten_question": "候选 50 个的时候，批量打分能省多少时间？ 重排 耗时 召回"
+        },
+        {
+          "id": "multi-08",
+          "category": "multi_turn",
+          "question": "那 800 字符的块呢，召回率多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "块大小 200、500、1200 字符时召回率各是多少？峰值在哪？"
+          ],
+          "rewritten_question": "那 800 字符的块呢，召回率多少？ 大小 峰值"
+        },
+        {
+          "id": "multi-09",
+          "category": "multi_turn",
+          "question": "重叠 200 字符时块数多多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "重叠 0、50、100、200 字符时召回率各是多少？"
+          ],
+          "rewritten_question": "重叠 200 字符时块数多多少？ 召回"
+        },
+        {
+          "id": "multi-10",
+          "category": "multi_turn",
+          "question": "生成占总延迟的百分之多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "单次问答中位延迟 900 毫秒，各环节分别占多少毫秒？"
+          ],
+          "rewritten_question": "生成占总延迟的百分之多少？ 单次 问答 中位 毫秒 环节 分别"
+        },
+        {
+          "id": "multi-11",
+          "category": "multi_turn",
+          "question": "概念类的目标是多少？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "融合评测集 300 条问题里，事实类、概念类、混合类各有多少条？各类融合召回率目标是多少？"
+          ],
+          "rewritten_question": "概念类的目标是多少？ 融合 评测 问题 事实 混合 各有 各类 召回"
+        },
+        {
+          "id": "multi-12",
+          "category": "multi_turn",
+          "question": "混合后比单用向量高多少个百分点？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "单独用向量检索和 BM25 的召回率各是多少？混合后是多少？"
+          ],
+          "rewritten_question": "混合后比单用向量高多少个百分点？ 单独 检索 bm25 召回"
+        },
+        {
+          "id": "multi-13",
+          "category": "multi_turn",
+          "question": "阈值取 0.8 的时候平均块长多少？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "04-embedding-rerank.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true,
+          "history": [
+            "语义切分的相似度阈值是多少？块内主题一致率多少？"
+          ],
+          "rewritten_question": "阈值取 0.8 的时候平均块长多少？ 语义 切分 相似 主题 一致"
+        },
+        {
+          "id": "multi-14",
+          "category": "multi_turn",
+          "question": "四个实例一起能到多少 QPS？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "单实例吞吐量和安全并发上限是多少？"
+          ],
+          "rewritten_question": "四个实例一起能到多少 QPS？ 吞吐量 安全 并发 上限"
+        },
+        {
+          "id": "multi-15",
+          "category": "multi_turn",
+          "question": "那向量库宕机降级呢，召回率降到多少？",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true,
+          "history": [
+            "模型服务超时降级后，答案忠实度从多少降到多少？超时判定阈值是多少？"
+          ],
+          "rewritten_question": "那向量库宕机降级呢，召回率降到多少？ 模型 服务 超时 答案 忠实度 判定 阈值"
+        },
+        {
+          "id": "multi-16",
+          "category": "multi_turn",
+          "question": "那块长 500 字符的时候呢？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "MiniLM 和 bge 的上下文长度各是多少？块长 800 字符时两者召回率各是多少？"
+          ],
+          "rewritten_question": "那块长 500 字符的时候呢？ minilm bge 上下文 长度 各是 两者 召回"
+        },
+        {
+          "id": "multi-17",
+          "category": "multi_turn",
+          "question": "完全支撑的目标占比是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true,
+          "history": [
+            "答案有据率和忠实度有什么区别？各自的目标是多少？"
+          ],
+          "rewritten_question": "完全支撑的目标占比是多少？ 答案 有据率 忠实度 区别 各自"
+        },
+        {
+          "id": "multi-18",
+          "category": "multi_turn",
+          "question": "追问的成功回答率是多少？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true,
+          "history": [
+            "线上拒答率的目标区间是多少？低于或高于意味着什么？"
+          ],
+          "rewritten_question": "追问的成功回答率是多少？ 线上 拒答 目标 区间 低于 高于 意味着"
+        },
+        {
+          "id": "multi-19",
+          "category": "multi_turn",
+          "question": "融合去重时，交并比阈值取 0.7 会怎么样？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true,
+          "history": [
+            "融合去重用的交并比阈值是多少？取 0.85 时效果如何？"
+          ],
+          "rewritten_question": "融合去重时，交并比阈值取 0.7 会怎么样？ 重用 效果"
+        },
+        {
+          "id": "multi-20",
+          "category": "multi_turn",
+          "question": "英文评测集上哪个更高？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true,
+          "history": [
+            "bge-small 在中文和英文评测集上的召回率各是多少？MiniLM 呢？"
+          ],
+          "rewritten_question": "英文评测集上哪个更高？ bge small 中文 召回 minilm"
+        },
+        {
+          "id": "refuse-05",
+          "category": "no_answer",
+          "question": "今天上海的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-06",
+          "category": "no_answer",
+          "question": "茅台今天的股票涨了多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-07",
+          "category": "no_answer",
+          "question": "红烧肉怎么做才好吃？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-08",
+          "category": "no_answer",
+          "question": "《流浪地球》讲了什么故事？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-09",
+          "category": "no_answer",
+          "question": "2026 年世界杯在哪举办？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-10",
+          "category": "no_answer",
+          "question": "去西安旅游，有什么值得去的景点？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-11",
+          "category": "no_answer",
+          "question": "微积分里链式法则怎么用？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-12",
+          "category": "no_answer",
+          "question": "感冒发烧应该吃什么药？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-13",
+          "category": "no_answer",
+          "question": "把“你好”翻译成英文怎么说？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-14",
+          "category": "no_answer",
+          "question": "贝多芬写过哪些交响曲？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-15",
+          "category": "no_answer",
+          "question": "租房合同里押金一般怎么退？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-16",
+          "category": "no_answer",
+          "question": "王者荣耀里哪个英雄最强？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-17",
+          "category": "no_answer",
+          "question": "Milvus 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-18",
+          "category": "no_answer",
+          "question": "OpenAI 的 GPT 模型调用一次多少钱？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-19",
+          "category": "no_answer",
+          "question": "微调一个 7B 模型需要几张显卡？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-20",
+          "category": "no_answer",
+          "question": "pgvector 怎么安装配置？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-05",
+          "category": "format_citation",
+          "question": "用表格形式列出 RRF 的 k=10、60、100 时的融合召回率，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-06",
+          "category": "format_citation",
+          "question": "用一句话说明 RRF 融合奖励什么样的块，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-07",
+          "category": "format_citation",
+          "question": "分点列出 MiniLM 和 bge-small 在维度、上下文长度、中文能力和编码速度上的区别，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-08",
+          "category": "format_citation",
+          "question": "用编号列出重排候选 10、20、50 个时的耗时和召回率，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-09",
+          "category": "format_citation",
+          "question": "用表格列出块大小 200、300、500、800、1200 字符时的召回率，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-10",
+          "category": "format_citation",
+          "question": "分点说明表格的三档处理方法，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-11",
+          "category": "format_citation",
+          "question": "用编号列出单次问答延迟拆解中占比最大的两项及数值，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-12",
+          "category": "format_citation",
+          "question": "分点列出缓存的两级及合计命中率，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-13",
+          "category": "format_citation",
+          "question": "用表格列出门槛 0.2、0.32、0.5 时的拒答准确率和误拒率，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-14",
+          "category": "format_citation",
+          "question": "分点列出幻觉的三个来源及占比，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-15",
+          "category": "format_citation",
+          "question": "用编号列出拒答失败的五种模式及占比，并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        },
+        {
+          "id": "format-16",
+          "category": "format_citation",
+          "question": "用一句话说明四实例吞吐量为什么不是单实例的四倍，并注明出处。",
+          "hit_docs": [
+            "06-deployment-cost.md",
+            "06-deployment-cost.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "06-deployment-cost.md",
+          "correct": true
+        },
+        {
+          "id": "format-17",
+          "category": "format_citation",
+          "question": "分点说明语义切分的优点和代价，并注明出处。",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "05-chunking-advanced.md",
+          "correct": true
+        },
+        {
+          "id": "format-18",
+          "category": "format_citation",
+          "question": "用表格列出四种 embedding 模型的维度、编码速度和体积，并注明出处。",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "04-embedding-rerank.md",
+          "correct": true
+        },
+        {
+          "id": "format-19",
+          "category": "format_citation",
+          "question": "用编号列出融合排查的三层及故障占比，并注明出处。",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "03-hybrid-retrieval.md",
+          "correct": true
+        },
+        {
+          "id": "format-20",
+          "category": "format_citation",
+          "question": "拒答评测集有一百条问题，其中二十条应该拒答，分哪四类？分点列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "07-hallucination-refusal.md",
+          "correct": true
+        }
+      ]
+    }
+  },
+  "note": "Corpus is 7 docs / 76 chunks; top1_accuracy is the more discriminating number when the corpus is small."
+}

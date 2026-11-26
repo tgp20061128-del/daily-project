@@ -1,0 +1,20 @@
+{"id": "fact-01", "category": "fact", "question": "什么是 RAG？", "expected_doc": "01-rag-intro.md", "expected_answer": "检索增强生成：先从外部知识库检索相关文档片段，再交给大语言模型生成答案，目的是减少幻觉、让答案有据可查。", "follow_up_to": null}
+{"id": "fact-02", "category": "fact", "question": "RAG 文档切分一般多大？重叠多少字符？", "expected_doc": "01-rag-intro.md", "expected_answer": "块大小 300 到 800 个字符，相邻块保留 50 到 100 个字符重叠。", "follow_up_to": null}
+{"id": "fact-03", "category": "fact", "question": "混合检索为什么比单一检索好？", "expected_doc": "01-rag-intro.md", "expected_answer": "向量检索擅长语义但对精确术语不敏感，BM25 擅长精确匹配但不懂同义词，两者结合同时覆盖精确匹配和语义匹配。", "follow_up_to": null}
+{"id": "fact-04", "category": "fact", "question": "重排 reranker 在 RAG 里起什么作用？", "expected_doc": "01-rag-intro.md", "expected_answer": "粗排取回 20 到 50 个候选块后，用交叉编码器逐对打分，只把得分最高的 3 到 5 块交给模型生成，提高上下文质量。", "follow_up_to": null}
+{"id": "cross-01", "category": "cross_doc", "question": "切分策略如何影响评测中的上下文召回率？", "expected_doc": "02-rag-evaluation.md", "expected_answer": "切得太碎会丢失上下文、切得太大引入噪声，都会降低召回；context recall 衡量标准答案所需关键信息有多少被检索到。", "follow_up_to": null}
+{"id": "cross-02", "category": "cross_doc", "question": "重排和 RAGAS 的上下文精确率有什么关系？", "expected_doc": "02-rag-evaluation.md", "expected_answer": "重排把最相关的块排到前面，提高交给模型的上下文质量；context precision 衡量检索到的块里有多少真正相关。", "follow_up_to": null}
+{"id": "cross-03", "category": "cross_doc", "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？", "expected_doc": "02-rag-evaluation.md", "expected_answer": "幻觉控制要求答案只依据上下文、带引用；faithfulness 衡量答案是否完全由检索到的上下文支撑。", "follow_up_to": null}
+{"id": "cross-04", "category": "cross_doc", "question": "做消融实验时，一次只改一个变量，为什么？", "expected_doc": "02-rag-evaluation.md", "expected_answer": "一次只改一个变量才能知道每个优化到底贡献了多少，没有基线对比的优化只是猜测。", "follow_up_to": null}
+{"id": "multi-01", "category": "multi_turn", "question": "那它和单纯向量检索比有什么优势？", "expected_doc": "01-rag-intro.md", "expected_answer": "混合检索同时覆盖精确匹配和语义匹配，单纯向量检索对精确术语、编号、人名不敏感。", "follow_up_to": "fact-03"}
+{"id": "multi-02", "category": "multi_turn", "question": "刚才说的重叠，具体是多少字符？", "expected_doc": "01-rag-intro.md", "expected_answer": "相邻块保留 50 到 100 个字符的重叠。", "follow_up_to": "fact-02"}
+{"id": "multi-03", "category": "multi_turn", "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？", "expected_doc": "02-rag-evaluation.md", "expected_answer": "Answer relevancy（答案相关性）。", "follow_up_to": null}
+{"id": "multi-04", "category": "multi_turn", "question": "如果检索没召回，下一步应该先改什么？", "expected_doc": "02-rag-evaluation.md", "expected_answer": "先按失败原因分类：检索没召回就改检索，召回靠后就改排序，模型答错就改提示词，不应拒答却编答案就改拒答阈值。", "follow_up_to": null}
+{"id": "refuse-01", "category": "no_answer", "question": "2026 年最新发布的大模型有哪些？", "expected_doc": "", "expected_answer": "知识库中没有相关内容，无法回答。", "follow_up_to": null}
+{"id": "refuse-02", "category": "no_answer", "question": "今天北京的天气怎么样？", "expected_doc": "", "expected_answer": "知识库中没有相关内容，无法回答。", "follow_up_to": null}
+{"id": "refuse-03", "category": "no_answer", "question": "如何用 LoRA 微调一个开源小模型？", "expected_doc": "", "expected_answer": "知识库中没有相关内容，无法回答。", "follow_up_to": null}
+{"id": "refuse-04", "category": "no_answer", "question": "Chroma 向量库的默认端口是多少？", "expected_doc": "", "expected_answer": "知识库中没有相关内容，无法回答。", "follow_up_to": null}
+{"id": "format-01", "category": "format_citation", "question": "用一句话回答什么是 RAG，并注明出处文档。", "expected_doc": "01-rag-intro.md", "expected_answer": "RAG 是检索增强生成，先检索相关文档片段再生成答案。出处：01-rag-intro.md。", "follow_up_to": null}
+{"id": "format-02", "category": "format_citation", "question": "列出 RAGAS 的四个核心指标，并注明出处。", "expected_doc": "02-rag-evaluation.md", "expected_answer": "Faithfulness、Answer relevancy、Context precision、Context recall。出处：02-rag-evaluation.md。", "follow_up_to": null}
+{"id": "format-03", "category": "format_citation", "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。", "expected_doc": "01-rag-intro.md", "expected_answer": "文档解析与切分、向量化与索引、检索、生成。出处：01-rag-intro.md。", "follow_up_to": null}
+{"id": "format-04", "category": "format_citation", "question": "幻觉控制靠哪三件事？用编号列出并注明出处。", "expected_doc": "01-rag-intro.md", "expected_answer": "1. 检索不到时明确拒答；2. 只依据上下文作答；3. 答案带引用。出处：01-rag-intro.md。", "follow_up_to": null}

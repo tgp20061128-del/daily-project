@@ -1,0 +1,16 @@
+# 安装顺序（重要）：先装 CPU 版 torch，再装其余依赖。直接 pip install -r
+# requirements.txt 会从 PyPI 拉 CUDA 版 torch（数 GB），本机不要这样装：
+#   TMPDIR=~/.cache/pip-tmp pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements.txt
+# 另：本机 /tmp 只有 512MB，装大包时 TMPDIR 必须指到家目录（见上）。
+fastapi>=0.165
+uvicorn[standard]>=0.54
+jieba>=0.42
+chromadb>=1.5.9
+sentence-transformers>=6.3.0  # embedding (bge-small-zh-v1.5) + reranker (BAAI/bge-reranker-base, CrossEncoder, ~1.1 GB download, lazy loaded)
+torch>=2.15.0  # CPU 版，见文件头注释；不要从 PyPI 装默认 CUDA 版
+rank-bm25>=0.2.2  # 占位，未接入
+ragas>=0.2  # 占位，未接入
+pydantic>=2.0
+python-dotenv>=1.0
+pytest>=8.0

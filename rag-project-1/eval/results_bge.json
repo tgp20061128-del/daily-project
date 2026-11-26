@@ -1,0 +1,1057 @@
+{
+  "method": "BM25 (jieba) + min-2-content-overlap refusal gate, top_k=3, sample corpus (7 docs, 76 chunks)",
+  "qa_file": "eval/qa_seed_20.jsonl",
+  "corpus": {
+    "docs": 7,
+    "chunks": 76
+  },
+  "total": 20,
+  "correct": 18,
+  "accuracy": 0.9,
+  "per_category": {
+    "fact": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    },
+    "cross_doc": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    },
+    "multi_turn": {
+      "total": 4,
+      "correct": 2,
+      "accuracy": 0.5
+    },
+    "no_answer": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    },
+    "format_citation": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    }
+  },
+  "details": [
+    {
+      "id": "fact-01",
+      "category": "fact",
+      "question": "什么是 RAG？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "01-rag-intro.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "fact-02",
+      "category": "fact",
+      "question": "RAG 文档切分一般多大？重叠多少字符？",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "fact-03",
+      "category": "fact",
+      "question": "混合检索为什么比单一检索好？",
+      "hit_docs": [
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "fact-04",
+      "category": "fact",
+      "question": "重排 reranker 在 RAG 里起什么作用？",
+      "hit_docs": [
+        "04-embedding-rerank.md",
+        "02-rag-evaluation.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "cross-01",
+      "category": "cross_doc",
+      "question": "切分策略如何影响评测中的上下文召回率？",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "02-rag-evaluation.md",
+        "04-embedding-rerank.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "cross-02",
+      "category": "cross_doc",
+      "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "05-chunking-advanced.md",
+        "01-rag-intro.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "cross-03",
+      "category": "cross_doc",
+      "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "cross-04",
+      "category": "cross_doc",
+      "question": "做消融实验时，一次只改一个变量，为什么？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "05-chunking-advanced.md",
+        "02-rag-evaluation.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "multi-01",
+      "category": "multi_turn",
+      "question": "那它和单纯向量检索比有什么优势？",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "03-hybrid-retrieval.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": false
+    },
+    {
+      "id": "multi-02",
+      "category": "multi_turn",
+      "question": "刚才说的重叠，具体是多少字符？",
+      "hit_docs": [
+        "05-chunking-advanced.md",
+        "05-chunking-advanced.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": false
+    },
+    {
+      "id": "multi-03",
+      "category": "multi_turn",
+      "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "multi-04",
+      "category": "multi_turn",
+      "question": "如果检索没召回，下一步应该先改什么？",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "refuse-01",
+      "category": "no_answer",
+      "question": "2026 年最新发布的大模型有哪些？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-02",
+      "category": "no_answer",
+      "question": "今天北京的天气怎么样？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-03",
+      "category": "no_answer",
+      "question": "如何用 LoRA 微调一个开源小模型？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "refuse-04",
+      "category": "no_answer",
+      "question": "Chroma 向量库的默认端口是多少？",
+      "hit_docs": [],
+      "expected_doc": "",
+      "correct": true
+    },
+    {
+      "id": "format-01",
+      "category": "format_citation",
+      "question": "用一句话回答什么是 RAG，并注明出处文档。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "01-rag-intro.md",
+        "02-rag-evaluation.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "format-02",
+      "category": "format_citation",
+      "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+      "hit_docs": [
+        "02-rag-evaluation.md",
+        "07-hallucination-refusal.md",
+        "06-deployment-cost.md"
+      ],
+      "expected_doc": "02-rag-evaluation.md",
+      "correct": true
+    },
+    {
+      "id": "format-03",
+      "category": "format_citation",
+      "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+      "hit_docs": [
+        "01-rag-intro.md",
+        "07-hallucination-refusal.md",
+        "03-hybrid-retrieval.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    },
+    {
+      "id": "format-04",
+      "category": "format_citation",
+      "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+      "hit_docs": [
+        "07-hallucination-refusal.md",
+        "01-rag-intro.md",
+        "07-hallucination-refusal.md"
+      ],
+      "expected_doc": "01-rag-intro.md",
+      "correct": true
+    }
+  ],
+  "embedding": {
+    "model": "BAAI/bge-small-zh-v1.5 (sentence-transformers, 512-dim, normalized)",
+    "download_mb": null,
+    "cache_dir": "/home/hatch/.cache/huggingface/hub/models--BAAI--bge-small-zh-v1.5",
+    "cache_size_mb": 96.4,
+    "persist_dir": "/home/hatch/workspace/goals/daily-study-plan-and-paper-push/files/rag-project-1/data/chroma"
+  },
+  "comparison": {
+    "bm25": {
+      "method": "BM25 (jieba) + min-2-content-overlap refusal gate, top_k=3",
+      "total": 20,
+      "correct": 18,
+      "accuracy": 0.9,
+      "top1_correct": 12,
+      "top1_accuracy": 0.6,
+      "per_category": {
+        "fact": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        },
+        "cross_doc": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        },
+        "multi_turn": {
+          "total": 4,
+          "correct": 2,
+          "accuracy": 0.5
+        },
+        "no_answer": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        },
+        "format_citation": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "fact-01",
+          "category": "fact",
+          "question": "什么是 RAG？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "01-rag-intro.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-02",
+          "category": "fact",
+          "question": "RAG 文档切分一般多大？重叠多少字符？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-03",
+          "category": "fact",
+          "question": "混合检索为什么比单一检索好？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-04",
+          "category": "fact",
+          "question": "重排 reranker 在 RAG 里起什么作用？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "02-rag-evaluation.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "cross-01",
+          "category": "cross_doc",
+          "question": "切分策略如何影响评测中的上下文召回率？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "cross-02",
+          "category": "cross_doc",
+          "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "cross-03",
+          "category": "cross_doc",
+          "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "cross-04",
+          "category": "cross_doc",
+          "question": "做消融实验时，一次只改一个变量，为什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-01",
+          "category": "multi_turn",
+          "question": "那它和单纯向量检索比有什么优势？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        },
+        {
+          "id": "multi-02",
+          "category": "multi_turn",
+          "question": "刚才说的重叠，具体是多少字符？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        },
+        {
+          "id": "multi-03",
+          "category": "multi_turn",
+          "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-04",
+          "category": "multi_turn",
+          "question": "如果检索没召回，下一步应该先改什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "refuse-01",
+          "category": "no_answer",
+          "question": "2026 年最新发布的大模型有哪些？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-02",
+          "category": "no_answer",
+          "question": "今天北京的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-03",
+          "category": "no_answer",
+          "question": "如何用 LoRA 微调一个开源小模型？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-04",
+          "category": "no_answer",
+          "question": "Chroma 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-01",
+          "category": "format_citation",
+          "question": "用一句话回答什么是 RAG，并注明出处文档。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-02",
+          "category": "format_citation",
+          "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "06-deployment-cost.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "format-03",
+          "category": "format_citation",
+          "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-04",
+          "category": "format_citation",
+          "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        }
+      ]
+    },
+    "vector": {
+      "method": "Chroma vector (bge-small-zh-v1.5) + same refusal gate, top_k=3",
+      "total": 20,
+      "correct": 13,
+      "accuracy": 0.65,
+      "top1_correct": 9,
+      "top1_accuracy": 0.45,
+      "per_category": {
+        "fact": {
+          "total": 4,
+          "correct": 3,
+          "accuracy": 0.75
+        },
+        "cross_doc": {
+          "total": 4,
+          "correct": 1,
+          "accuracy": 0.25
+        },
+        "multi_turn": {
+          "total": 4,
+          "correct": 2,
+          "accuracy": 0.5
+        },
+        "no_answer": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        },
+        "format_citation": {
+          "total": 4,
+          "correct": 3,
+          "accuracy": 0.75
+        }
+      },
+      "details": [
+        {
+          "id": "fact-01",
+          "category": "fact",
+          "question": "什么是 RAG？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-02",
+          "category": "fact",
+          "question": "RAG 文档切分一般多大？重叠多少字符？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        },
+        {
+          "id": "fact-03",
+          "category": "fact",
+          "question": "混合检索为什么比单一检索好？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-04",
+          "category": "fact",
+          "question": "重排 reranker 在 RAG 里起什么作用？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "01-rag-intro.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "cross-01",
+          "category": "cross_doc",
+          "question": "切分策略如何影响评测中的上下文召回率？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-02",
+          "category": "cross_doc",
+          "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "06-deployment-cost.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-03",
+          "category": "cross_doc",
+          "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-04",
+          "category": "cross_doc",
+          "question": "做消融实验时，一次只改一个变量，为什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-01",
+          "category": "multi_turn",
+          "question": "那它和单纯向量检索比有什么优势？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "multi-02",
+          "category": "multi_turn",
+          "question": "刚才说的重叠，具体是多少字符？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        },
+        {
+          "id": "multi-03",
+          "category": "multi_turn",
+          "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "05-chunking-advanced.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "multi-04",
+          "category": "multi_turn",
+          "question": "如果检索没召回，下一步应该先改什么？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "06-deployment-cost.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "refuse-01",
+          "category": "no_answer",
+          "question": "2026 年最新发布的大模型有哪些？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-02",
+          "category": "no_answer",
+          "question": "今天北京的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-03",
+          "category": "no_answer",
+          "question": "如何用 LoRA 微调一个开源小模型？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-04",
+          "category": "no_answer",
+          "question": "Chroma 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-01",
+          "category": "format_citation",
+          "question": "用一句话回答什么是 RAG，并注明出处文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-02",
+          "category": "format_citation",
+          "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "01-rag-intro.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "format-03",
+          "category": "format_citation",
+          "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "04-embedding-rerank.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-04",
+          "category": "format_citation",
+          "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        }
+      ]
+    },
+    "hybrid": {
+      "method": "BM25 + vector (bge-small-zh-v1.5), RRF k=60 + same refusal gate, top_k=3",
+      "total": 20,
+      "correct": 16,
+      "accuracy": 0.8,
+      "top1_correct": 12,
+      "top1_accuracy": 0.6,
+      "per_category": {
+        "fact": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        },
+        "cross_doc": {
+          "total": 4,
+          "correct": 1,
+          "accuracy": 0.25
+        },
+        "multi_turn": {
+          "total": 4,
+          "correct": 3,
+          "accuracy": 0.75
+        },
+        "no_answer": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        },
+        "format_citation": {
+          "total": 4,
+          "correct": 4,
+          "accuracy": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "fact-01",
+          "category": "fact",
+          "question": "什么是 RAG？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-02",
+          "category": "fact",
+          "question": "RAG 文档切分一般多大？重叠多少字符？",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-03",
+          "category": "fact",
+          "question": "混合检索为什么比单一检索好？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "fact-04",
+          "category": "fact",
+          "question": "重排 reranker 在 RAG 里起什么作用？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "04-embedding-rerank.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "cross-01",
+          "category": "cross_doc",
+          "question": "切分策略如何影响评测中的上下文召回率？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-02",
+          "category": "cross_doc",
+          "question": "重排和 RAGAS 的上下文精确率有什么关系？",
+          "hit_docs": [
+            "04-embedding-rerank.md",
+            "01-rag-intro.md",
+            "04-embedding-rerank.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-03",
+          "category": "cross_doc",
+          "question": "幻觉控制和忠实度 faithfulness 是怎么对应的？",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": false
+        },
+        {
+          "id": "cross-04",
+          "category": "cross_doc",
+          "question": "做消融实验时，一次只改一个变量，为什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-01",
+          "category": "multi_turn",
+          "question": "那它和单纯向量检索比有什么优势？",
+          "hit_docs": [
+            "03-hybrid-retrieval.md",
+            "03-hybrid-retrieval.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "multi-02",
+          "category": "multi_turn",
+          "question": "刚才说的重叠，具体是多少字符？",
+          "hit_docs": [
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md",
+            "05-chunking-advanced.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": false
+        },
+        {
+          "id": "multi-03",
+          "category": "multi_turn",
+          "question": "这四个指标里，哪一个衡量答案是否真正回答了问题？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "multi-04",
+          "category": "multi_turn",
+          "question": "如果检索没召回，下一步应该先改什么？",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "03-hybrid-retrieval.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "refuse-01",
+          "category": "no_answer",
+          "question": "2026 年最新发布的大模型有哪些？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-02",
+          "category": "no_answer",
+          "question": "今天北京的天气怎么样？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-03",
+          "category": "no_answer",
+          "question": "如何用 LoRA 微调一个开源小模型？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "refuse-04",
+          "category": "no_answer",
+          "question": "Chroma 向量库的默认端口是多少？",
+          "hit_docs": [],
+          "expected_doc": "",
+          "correct": true
+        },
+        {
+          "id": "format-01",
+          "category": "format_citation",
+          "question": "用一句话回答什么是 RAG，并注明出处文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "02-rag-evaluation.md",
+            "03-hybrid-retrieval.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-02",
+          "category": "format_citation",
+          "question": "列出 RAGAS 的四个核心指标，并注明出处。",
+          "hit_docs": [
+            "02-rag-evaluation.md",
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md"
+          ],
+          "expected_doc": "02-rag-evaluation.md",
+          "correct": true
+        },
+        {
+          "id": "format-03",
+          "category": "format_citation",
+          "question": "用分点形式说明 RAG 的典型流程，每点注明来源文档。",
+          "hit_docs": [
+            "01-rag-intro.md",
+            "04-embedding-rerank.md",
+            "02-rag-evaluation.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        },
+        {
+          "id": "format-04",
+          "category": "format_citation",
+          "question": "幻觉控制靠哪三件事？用编号列出并注明出处。",
+          "hit_docs": [
+            "07-hallucination-refusal.md",
+            "01-rag-intro.md",
+            "07-hallucination-refusal.md"
+          ],
+          "expected_doc": "01-rag-intro.md",
+          "correct": true
+        }
+      ]
+    }
+  },
+  "note": "Corpus is 7 docs / 76 chunks; top1_accuracy is the more discriminating number when the corpus is small."
+}
